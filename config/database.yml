@@ -1,0 +1,23 @@
+# config/database.yml
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  database: codingdb
+  username: ravin
+  password: "password123"
+  host: localhost
+  port: 3306
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: codingdb_test
+
+production:
+  <<: *default
+  database: codingdb_production
+  username: prod_user # production user
+  password: <%= ENV["DB_PASSWORD"] %> # always use ENV for prod
